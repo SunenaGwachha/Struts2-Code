@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+<include file="login.xml"></include>
+		<package name="default" namespace="/tutorials" extends="struts-default">
+       <!-- 
+		<action name="getTutorial" class="org.test.java.actions.TutorialAction" method="someOthermethod">
+			<result name="success">/success.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>	
+		-->
+		
+		 
+		<action name="get*" class="org.test.java.actions.{1}Action">
+			<result name="success">/success.jsp</result>
+			<result name="failure">/error.jsp</result>
+		</action>	  
+	</package>
+	
+	
+	
+	<package name="search" namespace="/" extends="struts-default">          
+		<!--  
+		<action name="searchForm">
+			<result>/searchForm.jsp</result>
+		</action>	  
+		<action name="search*">
+			<result>/searchForm.jsp</result>
+		</action>	
+		-->
+	<!--  1 indicate 1 wild card if sear*ch* then we have to do 2 becoz there is 2 wild card -->
+		<action name="search*">
+			<result>/search{1}.jsp</result>
+		</action>	
+	</package>
+
+</struts>
